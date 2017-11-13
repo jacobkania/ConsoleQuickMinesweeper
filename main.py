@@ -16,6 +16,12 @@ class Board:
     '<2>' 2 nearby bombs
     """
     def __init__(self, size_x, size_y, num_bombs):
+        """
+        Creates a game board for minesweeper
+        :param size_x: Width of the board
+        :param size_y: Height of the board
+        :param num_bombs: Number of bombs to place
+        """
         self.__spaces = [[['[ ]', Bomb.NO, 0] for col in range(size_x)] for row in range(size_y)]
         self.__filled = set()
         self._x = size_x
@@ -86,7 +92,7 @@ class Board:
         
 
 def main():
-    gameboard = Board(10, 10, 20)
+    gameboard = Board(10, 10, 10)
     
     while not gameboard.is_over:
         x, y = (int(i) for i in input("Coordinates (x,y): ").split(','))
